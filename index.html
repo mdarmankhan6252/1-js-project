@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.tailwindcss.com"></script>
+<title>Change Text Color</title>
+
+</head>
+<body>
+
+   <div id="main" class="flex *:flex-1 max-w-[1200px] mx-auto my-24 gap-5">
+      <div class="border">
+         <div class="flex flex-col space-y-4 p-2.5 *:p-2.5 *:border-2 *:border-amber-500">
+            <h2 class="text-3xl text-center">Form</h2>
+
+         <input id="name" type="text" placeholder="Write Your name" required>
+         <input id="father" type="text" placeholder="Write Your Father's name" required>
+         <input id="mother" type="text" placeholder="Write Your Mother's name" required>
+         <input id="mobile" type="number" placeholder="Write Your Mobile">
+         <input onclick="submit()" class="bg-amber-200 text-xl" type="submit" value="Ready">
+         </div>
+
+      </div>
+      <div class="border p-2.5">
+         <h1 class="text-3xl text-center mb-10">My details</h1>
+         <div class="*:text-xl space-y-8">
+            <p>Name:   <span id="setName"></span></p>
+            <p>Father: <span id="setFather"></span></p>
+            <p>Mother: <span id="setMother"></span></p>
+            <p>Mobile: <span id="setMobile" class="text-blue-500"></span></p>
+            <input onclick="submit2()" class="bg-amber-200 text-xl w-full py-2.5 border-2 border-amber-500 hidden " type="submit" value="Submit" id="submit">
+
+         </div>
+
+
+      </div>
+   </div>
+
+   <div id="submitted" class="flex items-center justify-center min-h-screen bg-purple-100 hidden">
+      <div class="w-[400px] h-[400px] border flex items-center justify-center rounded-xl shadow-md">
+         <span class="text-6xl text-orange-500 font-thin ">Submitted</span>
+      </div>
+   </div>
+
+   <script>
+      function submit(){
+         const name = document.getElementById('name').value;
+         document.getElementById('name').value = '';
+         
+         const father = document.getElementById('father').value;
+         document.getElementById('father').value = '';
+
+         const mother = document.getElementById('mother').value;
+         document.getElementById('mother').value = '';
+
+         const mobile = document.getElementById('mobile').value;
+         document.getElementById('mobile').value = '';
+         
+
+         const setName = document.getElementById('setName');
+         setName.innerText = name;
+         
+         const setFather = document.getElementById('setFather');
+         setFather.innerText = father;
+         const setMother = document.getElementById('setMother');
+         setMother.innerText = mother;
+         const setMobile = document.getElementById('setMobile');
+         setMobile.innerText = mobile;
+
+         const submit =  document.getElementById('submit');
+         submit.classList.remove("hidden")
+       
+      }
+      function submit2(){
+         const main = document.getElementById('main');
+         main.classList.add('hidden');
+         const submitted = document.getElementById('submitted');
+         submitted.classList.remove('hidden');
+         
+
+      }
+   </script>
+
+</body>
+</html>
